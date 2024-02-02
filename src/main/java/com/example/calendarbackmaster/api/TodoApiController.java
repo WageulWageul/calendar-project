@@ -17,20 +17,20 @@ import java.util.List;
 public class TodoApiController {
     @Autowired
     private TodoService todoService;
-//
-//    //GET
-    @GetMapping("/api/todos")
+
+    //GET
+    @GetMapping("/api/todos") //모든 데이터 조회요청
     public List<Todo> index() {
         return todoService.index();
     }
 
-    @GetMapping("/api/todos/{id}")
+    @GetMapping("/api/todos/{id}") //단일 데이터 조회 요청
     public Todo show(@PathVariable Long id) {
         return todoService.show(id);
     }
 
     //POST
-    @PostMapping("/api/todos")
+    @PostMapping("/api/todos") //생성 요청
     public ResponseEntity<Todo> create(@RequestBody TodoForm dto) {
         Todo created = todoService.create(dto);
         return (created != null) ?
@@ -39,7 +39,7 @@ public class TodoApiController {
     }
 
     //PATCH
-    @PatchMapping("/api/todos/{id}")
+    @PatchMapping("/api/todos/{id}") //수정 요청
     public ResponseEntity<Todo> update(@PathVariable Long id, @RequestBody TodoForm dto) {
         Todo updated = todoService.update(id, dto);
         return (updated != null) ?
@@ -48,7 +48,7 @@ public class TodoApiController {
     }
 
     //DELETE
-    @DeleteMapping("/api/todos/{id}")
+    @DeleteMapping("/api/todos/{id}") //삭제 요청
     public ResponseEntity<Todo> delete(@PathVariable Long id){
         Todo deleted = todoService.delete(id);
         return (deleted != null) ?
