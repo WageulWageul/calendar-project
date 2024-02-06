@@ -81,6 +81,7 @@ function Register(props) {
                         />
                     </label>
                     <br />
+                    <div style={{ display: 'flex', justifyContent: 'center', maxWidth: '25rem',margin: '0 auto', flexDirection: 'row' }}>
                     <t.SNSButton
                         onClick={handlekakaoLogin}
                         style={{ backgroundColor: '#FEE500', marginRight: '10px' }}
@@ -95,6 +96,7 @@ function Register(props) {
                         <Naver style={{ float: 'left', }} />
                         네이버 로그인
                     </t.SNSButton>
+                    </div>
                     <br />
                     <div style={{textAlign: 'right'}}>
                     <Link to='/login'>

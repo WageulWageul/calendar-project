@@ -6,17 +6,23 @@ import { ReactComponent as Naver } from '../../assets/img/naver.svg';
 
 
 
+
 function Login(props) {
-  const [userData, setUserData] = useState([]);
-  const [email, setEmail] = useState('');
-  const [pw, setPw] = useState("");
-  
+const [userData, setUserData] = useState([]);
+const [email, setEmail] = useState('');
+const [pw, setPw] = useState("");
+const Rest_api_key = process.env.REACT_APP_REST_API_KEY;
+const redirect_uri = process.env.REACT_APP_REDIRECT_URI;
+const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`;
 
 const onChangeEmail = (e) => {
     setEmail(e.target.value);
 };
 const onChangePw = (e) => {
     setPw(e.target.value);
+};
+const kakaoLogin = ()=>{
+  window.location.href = kakaoURL;
 };
 
 const onSubmit = (e) => {
@@ -32,25 +38,19 @@ const onSubmit = (e) => {
     });
     console.log({userData});
 };
-  const handleKakaoLogin = (e) => {
-    // 처리
-  };
-
-  const handleNaverLogin = (e) => {
-    // 처리
-  };
+ 
 
   const handleLogin = () => {
-    if (email=== "jiminseong@gachon.ac.kr" && pw === "202237792") {
+    if (email=== "a" && pw === "1") {
         window.location.replace("/")
     }
-    if (email === "jiminseong@gachon.ac.kr" && pw !== "202237792"){
+    if (email === "a" && pw !== "1"){
         alert("비밀번호가 옳지 않습니다.");
     }
-    if (email !== "jiminseong@gachon.ac.kr" && pw === "202237792"){
+    if (email !== "a" && pw === "1"){
         alert("아이디가 옳지 않습니다.");
     }
-    if (email !== "jiminseong@gachon.ac.kr" && pw !== "202237792"){
+    if (email !== "a" && pw !== "1"){
         alert("아이디와 비밀번호가 옳지 않습니다.");
     }
 };
@@ -84,15 +84,16 @@ const onSubmit = (e) => {
           </label>
           <br />
           <div style={{ display: 'flex', justifyContent: 'center', maxWidth: '25rem',margin: '0 auto', flexDirection: 'row' }}>
+           
             <t.SNSButton
-              onClick={handleKakaoLogin}
+              onClick={kakaoLogin}
               style={{ backgroundColor: '#FEE500', marginRight: '10px' }}
             >
-              <Kakao style={{ float: 'left' }} />
+              <Kakao style={{ float: 'left' }}/>
               카카오 로그인
             </t.SNSButton>
+
             <t.SNSButton
-              onClick={handleNaverLogin}
               style={{ backgroundColor: '#03C75A' ,color: '#ffffff'}}
             >
             <Naver style={{ float: 'left' }} />

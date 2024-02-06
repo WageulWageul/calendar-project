@@ -1,12 +1,17 @@
-body {
+
+html, body { 
+  height: 100vh;
   margin: 0;
+  padding: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  font-family: 'Pretendard';
   color: #2F3367;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Pretendard';
 };
 
-
+ 
 
 /* 각각의 글꼴 두께에 대한 정의 */
 @font-face {

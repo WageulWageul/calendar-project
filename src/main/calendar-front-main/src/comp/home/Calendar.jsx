@@ -10,14 +10,15 @@ import { ReactComponent as ProfileImg } from '../../assets/img/Profile.svg';
 
 const Cal_Container = styled.table`
   width: 100%;
+  height : 100%;
+  
   text-align: center;  
   font-size : 2rem;
-  height : 40vw;
+  
   line-height: 2em;
   & > tbody > tr > td {
     border-radius : 3em;
   }
-  
   th.sun {
     color: #F85959;
   }
@@ -43,11 +44,13 @@ const Month = styled.div`
     font-weight : 500;
     color : #2F3367;
     white-space: nowrap;
-
+  
     @media (max-width:1150px){
       font-size : 5vw;
     }
     `;
+
+
 
 const MonthButton = styled.div`
     font-weight: 600;
@@ -65,11 +68,7 @@ const MonthButton = styled.div`
     }  
     `;
 
-const Day = styled.span` /*이거 필요없음 -> 적용되는거 노트북상에서 안보임*/
-  @media (max-width:550px){
-    display: none
-  }
-  `
+
 const HeaderFrame = styled.div`
     display: flex;
     align-items: center;
@@ -142,12 +141,7 @@ const ResponsiveMonthList = styled(MonthList)`
     }
   }
 `;
-  
-  const ResponsiveCalendarContainer = styled(Cal_Container)`
-    @media screen and (max-width: 1150px) {
-      order: 4; /* CalendarContainer를 마지막으로 배치 */
-    }
-  `;
+
 
 
 
@@ -185,10 +179,21 @@ const calendarArr=()=>{
                         <span>{days.format('D')}</span>
                       </td>
                   );
-                }else if(days.format('MM') !== today.format('MM')){
-                  return(
-                      <td key={index}>
-                        <span style={{color:'silver'}}>{days.format('D')}</span>
+
+                if(moment().fromat('YYYYYMMDD') === days.format('YYYYMMDD')) {
+                    <td key={index} style={{
+                        color: '#ffffff',
+                        borderRadius: '3em', backgroundColor: '#007DFA'
+                    }}>
+                        <span>{days.format('D')}</span>
+                    </td>
+                }
+                    ;
+
+                } else if (days.format('MM') !== today.format('MM')) {
+                    return (
+                        <td key={index}>
+                            <span style={{color: 'silver'}}>{days.format('D')}</span>
                       </td>
                   );
                 }else{
@@ -220,10 +225,10 @@ return (
                     </YearOption>
                 ))}
             </YearScrollBar>
-            <div style={{ display: 'flex', alignItems: 'center', marginRight: '3px' }}>
-            <LeftMonth onClick={()=>{ setMoment(getMoment.clone().subtract(1, 'month')) }}/>
-            <Month>{today.format('MM월')}</Month>
-            <RightMonth onClick={()=>{ setMoment(getMoment.clone().add(1, 'month')) }}/>
+            <div style={{ display: 'flex', alignItems: 'center'}}>
+                <LeftMonth style={{width:'30px',hight:'30px' }} onClick={()=>{ setMoment(getMoment.clone().subtract(1, 'month')) }}/>
+                <Month>{today.format('MM월')}</Month>
+                <RightMonth style={{width:'30px',hight:'30px' }} onClick={()=>{ setMoment(getMoment.clone().add(1, 'month')) }}/>
             </div>
         </div>
         <ResponsiveMonthList>
@@ -244,20 +249,18 @@ return (
             </ProfileFrame>
           </Link>
     </ResponsiveHeaderFrame>
-    <ResponsiveCalendarContainer>
-        <Cal_Container>
+    <Cal_Container>
             <tr>
-                  <th className='sun'><Day>일</Day></th>
-                  <th><Day>월</Day></th>
-                  <th><Day>화</Day></th>
-                  <th><Day>수</Day></th>
-                  <th><Day>목</Day></th>
-                  <th><Day>금</Day></th>
-                  <th className='sat'><Day>토</Day></th>
+                  <th className='sun'>일</th>
+                  <th>월</th>
+                  <th>화</th>
+                  <th>수</th>
+                  <th>목</th>
+                  <th>금</th>
+                  <th className='sat'>토</th>
                 </tr>
                 {calendarArr()}
-        </Cal_Container>
-    </ResponsiveCalendarContainer>
+    </Cal_Container>
   </>
 )
 }

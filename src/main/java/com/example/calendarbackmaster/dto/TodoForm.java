@@ -8,10 +8,13 @@ import lombok.ToString;
 @ToString
 public class TodoForm {
     private Long id;
+//    private Long year;
+//    private Long month;
+//    private Long day;
     private String title;
     private String content;
 
     public Todo toEntity() {
-        return new Todo(id, title, content);
+        return new Todo(id,title, content);
     }
 }
