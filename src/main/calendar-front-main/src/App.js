@@ -6,6 +6,7 @@ import Register from './comp/login/Register';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import Todo from './comp/todo/Todo';
+import TodoDetail from "./comp/todo/TodoDetail";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/" element={<Home/>}></Route>
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>}/> 
-        {/*<Route path="/write" element={<TodoCreate/>} />*/}
+        <Route path="/detail:date" element={<TodoDetail/>} />
         <Route path="/todo" element={<Todo/>}/>
       </Routes>
     </BrowserRouter>
