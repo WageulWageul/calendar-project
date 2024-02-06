@@ -13,11 +13,11 @@ function TodoCreate( element,setComplete,) {
         title : '',
         content : '',
         date: moment(selectedDate).format('YYYYMMDD'),
-        hour : '',
-        minute : '',
+        hou : '',
+        min : '',
     });
 
-    const {title,content,hour,minute} = todo; //비구조화 할당
+    const {title,content,hou,min} = todo; //비구조화 할당
 
 
     const onChange = (e) => {
@@ -76,8 +76,8 @@ function TodoCreate( element,setComplete,) {
                     <TodoTime
                         placeholder="00"
                         type="text"
-                        name="hour"
-                        value={hour}
+                        name="hou"
+                        value={hou}
                         onChange={onChange}>
                     </TodoTime>
                     <span style={{marginLeft : '0.25em'}}>시</span>
@@ -85,8 +85,8 @@ function TodoCreate( element,setComplete,) {
                         style={{marginLeft:'0.25em'}}
                         placeholder="00"
                         type="text"
-                        name="minute"
-                        value={minute}
+                        name="min"
+                        value={min}
                         onChange={onChange}>
                     </TodoTime>
                     <span style={{marginLeft:'0.25em'}}>분</span>

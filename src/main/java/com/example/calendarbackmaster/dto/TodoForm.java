@@ -11,10 +11,10 @@ public class TodoForm {
     private String title;
     private String content;
     private String date;
-    private String hour;
-    private String minute;
+    private String hou;
+    private String min;
 
     public Todo toEntity() {
-        return new Todo(id, title, content, date, hour, minute);
+        return new Todo(id, title, content, date, hou, min);
     }
 }

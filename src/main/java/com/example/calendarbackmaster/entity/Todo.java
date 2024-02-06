@@ -22,9 +22,9 @@ public class Todo {
     @Column
     private String date;
     @Column
-    private String hour;
+    private String hou;
     @Column
-    private String minute;
+    private String min;
 
     public void patch(Todo todo) {
         if(todo.title != null)
@@ -33,9 +33,9 @@ public class Todo {
             this.content = todo.content;
         if(todo.date != null)
             this.date = todo.date;
-        if(todo.hour != null)
-            this.hour = todo.hour;
-        if(todo.minute != null)
-            this.minute = todo.minute;
+        if(todo.hou != null)
+            this.hou = todo.hou;
+        if(todo.min != null)
+            this.min = todo.min;
     }
 }
