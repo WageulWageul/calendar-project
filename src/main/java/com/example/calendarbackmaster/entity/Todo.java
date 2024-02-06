@@ -15,27 +15,27 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @Column
-//    private Long year;
-//    @Column
-//    private Long month;
-//    @Column
-//    private Long day;
     @Column
     private String title;
     @Column
     private String content;
+    @Column
+    private String date;
+    @Column
+    private String hour;
+    @Column
+    private String minute;
 
     public void patch(Todo todo) {
-//        if(todo.year != null)
-//            this.year = todo.year;
-//        if(todo.month != null)
-//            this.month = todo.month;
-//        if(todo.day != null)
-//            this.day = todo.day;
         if(todo.title != null)
             this.title = todo.title;
         if(todo.content != null)
             this.content = todo.content;
+        if(todo.date != null)
+            this.date = todo.date;
+        if(todo.hour != null)
+            this.hour = todo.hour;
+        if(todo.minute != null)
+            this.minute = todo.minute;
     }
 }
