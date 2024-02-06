@@ -8,7 +8,7 @@ function Todo(props) {
       }
 
       useEffect(() => {
-        getTodoList(); 
+        getTodoList();
       }, []);
 
     return (
